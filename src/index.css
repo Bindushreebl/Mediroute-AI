@@ -1,0 +1,232 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color-scheme: dark;
+  }
+  
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Custom dark tile styling for Leaflet */
+.leaflet-dark-mode .leaflet-tile {
+  filter: brightness(0.85) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
+}
+
+/* Custom Leaflet popup dark theme */
+.leaflet-popup-content-wrapper {
+  background: #0f172a !important;
+  color: #f8fafc !important;
+  border: 1px solid #334155;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5) !important;
+  padding: 0 !important;
+}
+
+.leaflet-popup-tip {
+  background: #0f172a !important;
+  border: 1px solid #334155;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: 1.4 !important;
+}
+
+.leaflet-container {
+  background-color: #020617 !important;
+  outline: none;
+}
+
+/* Radar pulse animation for emergency markers */
+@keyframes emergency-radar {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 16px rgba(239, 68, 68, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+.emergency-pulse-marker {
+  animation: emergency-radar 2s infinite;
+}
+
+/* Custom scrollbar for control panels */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* ========================================================
+   HIGH CONTRAST MODE (Low-Light & Night Emergency Environment)
+   ======================================================== */
+.theme-high-contrast {
+  color-scheme: dark;
+}
+
+.theme-high-contrast body,
+body:has(.theme-high-contrast) {
+  background-color: #000000;
+}
+
+/* Enhanced edge definition and high visibility borders for night emergency operations */
+.theme-high-contrast .border-slate-800,
+.theme-high-contrast .border-slate-800\/80,
+.theme-high-contrast .border-slate-800\/60 {
+  border-color: #334155 !important;
+}
+
+.theme-high-contrast .bg-slate-950,
+.theme-high-contrast .bg-slate-950\/60,
+.theme-high-contrast .bg-slate-950\/80 {
+  background-color: #020617 !important;
+}
+
+.theme-high-contrast .bg-slate-900,
+.theme-high-contrast .bg-slate-900\/90,
+.theme-high-contrast .bg-slate-900\/80,
+.theme-high-contrast .bg-slate-900\/60 {
+  background-color: #090d16 !important;
+  border-color: #334155 !important;
+}
+
+/* ========================================================
+   MINIMALIST UI MODE (Daylight & Solar Glare Reduction)
+   ======================================================== */
+.theme-minimalist {
+  color-scheme: light;
+}
+
+.theme-minimalist body,
+body:has(.theme-minimalist) {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+/* Clean, daylight-optimized cards with high sunlight contrast */
+.theme-minimalist .bg-slate-950,
+.theme-minimalist .bg-slate-950\/90,
+.theme-minimalist .bg-slate-950\/80,
+.theme-minimalist .bg-slate-950\/60 {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+  border-color: #e2e8f0 !important;
+}
+
+.theme-minimalist .bg-slate-900,
+.theme-minimalist .bg-slate-900\/90,
+.theme-minimalist .bg-slate-900\/80,
+.theme-minimalist .bg-slate-900\/60,
+.theme-minimalist .bg-slate-900\/50,
+.theme-minimalist .bg-slate-900\/30 {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+}
+
+.theme-minimalist .border-slate-800,
+.theme-minimalist .border-slate-800\/80,
+.theme-minimalist .border-slate-800\/60,
+.theme-minimalist .border-slate-800\/50 {
+  border-color: #e2e8f0 !important;
+}
+
+.theme-minimalist .border-slate-700 {
+  border-color: #cbd5e1 !important;
+}
+
+/* High daylight contrast text */
+.theme-minimalist .text-white {
+  color: #0f172a !important;
+}
+
+.theme-minimalist .text-slate-100 {
+  color: #0f172a !important;
+}
+
+.theme-minimalist .text-slate-200 {
+  color: #1e293b !important;
+}
+
+.theme-minimalist .text-slate-300 {
+  color: #334155 !important;
+}
+
+.theme-minimalist .text-slate-400 {
+  color: #475569 !important;
+}
+
+.theme-minimalist .text-slate-500 {
+  color: #64748b !important;
+}
+
+/* Form controls in daylight mode */
+.theme-minimalist input:not([type="range"]):not([type="checkbox"]):not([type="radio"]),
+.theme-minimalist select,
+.theme-minimalist textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+.theme-minimalist input::placeholder,
+.theme-minimalist textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Daylight map tile styling (natural OpenStreetMap daylight tiles) */
+.theme-minimalist .leaflet-dark-mode .leaflet-tile {
+  filter: none !important;
+}
+
+.theme-minimalist .leaflet-container {
+  background-color: #f1f5f9 !important;
+}
+
+.theme-minimalist .leaflet-popup-content-wrapper {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.theme-minimalist .leaflet-popup-tip {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+.theme-minimalist ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.theme-minimalist ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+.theme-minimalist ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

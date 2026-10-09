@@ -1,0 +1,6 @@
+{
+  "name": "MediRoute AI - Smart Ambulance Route & Emergency Response System",
+  "description": "The fastest route when every second matters. AI-powered emergency routing, hospital discovery, ambulance tracking, and real-time response coordination.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
